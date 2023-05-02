@@ -13,12 +13,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { UserstblComponent } from "./userstbl/userstbl.component";
+
+import { RouterModule, Routes } from "@angular/router";
 
 registerLocaleData(en);
 
+const routes: Routes= [
+  {
+    path: 'userstbl',
+    component: UserstblComponent
+  },
+];
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserstblComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +39,8 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
