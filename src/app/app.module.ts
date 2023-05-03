@@ -13,15 +13,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { UserstblComponent } from "./userstbl/userstbl.component";
 
 import { RouterModule, Routes } from "@angular/router";
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { CommonModule } from '@angular/common';
+import { FormularioComponent } from './formulario/formulario.component';
+import { FormularioModule } from './formulario/formulario.module';
+import { UserstblComponent } from './userstbl/userstbl.component';
+
 
 registerLocaleData(en);
 
-const routes: Routes= [
+const routes: Routes = [
   {
     path: 'welcome',
     component: WelcomeComponent
@@ -29,16 +32,17 @@ const routes: Routes= [
   },
   {
     path: 'userstbl',
-    component: UserstblComponent
+    component: UserstblComponent,
+  },
+  {
+    path: 'form',
+    component: FormularioComponent,
   },
 
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    UserstblComponent
-  ],
+  declarations: [AppComponent, UserstblComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -48,12 +52,11 @@ const routes: Routes= [
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
+    FormularioModule,
+    CommonModule,
     RouterModule.forRoot(routes),
-    CommonModule
   ],
-  providers: [
-    { provide: NZ_I18N, useValue: en_US }
-  ],
-  bootstrap: [AppComponent]
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
