@@ -1,7 +1,6 @@
 <table class="table table-bordered border-primary">
   <thead>
     <tr>
-
       <th scope="col">Firstname</th>
       <th scope="col">Username</th>
       <th scope="col">Lastname</th>
@@ -12,34 +11,13 @@
   </thead>
   <tbody>
     <tr>
-      <td>algo</td>
-      <td>algo</td>
-      <td>algo</td>
+      <td > </td>
     </tr>
-    <tr>
-      <td>algo</td>
-      <td>algo</td>
-      <td>algo</td>
-    </tr>
-    <tr>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-    <tr>
-      <td>algo</td>
-      <td>algo</td>
-      <td>algo</td>
-    </tr>
-    <tr>
-      <td>algo</td>
-      <td>algo</td>
-      <td>algo</td>
-    </tr>
-    <tr>
-      <td>algo</td>
-      <td>algo</td>
-      <td>algo</td>
-    </tr>
-
   </tbody>
 </table>
+
+<ul>
+  <li *ngFor="let item of data">
+    {{ item }}
+  </li>
+</ul>

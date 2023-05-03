@@ -16,14 +16,22 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { UserstblComponent } from "./userstbl/userstbl.component";
 
 import { RouterModule, Routes } from "@angular/router";
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { CommonModule } from '@angular/common';
 
 registerLocaleData(en);
 
 const routes: Routes= [
   {
+    path: 'welcome',
+    component: WelcomeComponent
+
+  },
+  {
     path: 'userstbl',
     component: UserstblComponent
   },
+
 ];
 
 @NgModule({
@@ -40,7 +48,8 @@ const routes: Routes= [
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    CommonModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
