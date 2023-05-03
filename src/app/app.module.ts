@@ -14,11 +14,25 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { FormularioModule } from './formulario/formulario.module';
+import { UserstblComponent } from './userstbl/userstbl.component';
+import { RouterModule, Routes } from '@angular/router';
+import { FormularioComponent } from './formulario/formulario.component';
 
 registerLocaleData(en);
 
+const routes: Routes = [
+  {
+    path: 'userstbl',
+    component: UserstblComponent,
+  },
+  {
+    path: 'form',
+    component: FormularioComponent,
+  },
+];
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UserstblComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +43,8 @@ registerLocaleData(en);
     NzLayoutModule,
     NzMenuModule,
     FormularioModule,
+
+    RouterModule.forRoot(routes),
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
