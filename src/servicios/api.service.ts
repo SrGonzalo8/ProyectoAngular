@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-private urlApi = 'https://rickandmortyapi.com/api/character/1,183';
+private urlApi = 'http://localhost:3000/users/';
 
   constructor(private http: HttpClient) { }
   public getData (): Observable <any>{

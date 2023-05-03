@@ -4,21 +4,20 @@ import { ApiService } from '../../servicios/api.service';
 @Component({
   selector: 'app-userstbl',
   templateUrl: './userstbl.component.html',
-  styleUrls: ['./userstbl.component.sass']
+  styleUrls: ['./userstbl.component.sass'],
 })
 export class UserstblComponent implements OnInit {
+  data: any[] = [];
 
-data: any[]= [];
+  constructor(private ApiService: ApiService) {}
 
-constructor(private ApiService: ApiService){}
-
-ngOnInit(): void {
-this.llenarData()
-}
-llenarData(){
-this.ApiService.getData().subscribe( data => {
-  this.data = data;
-  console.log(this.data);
-})
-}
+  ngOnInit(): void {
+    this.llenarData();
+  }
+  llenarData() {
+    this.ApiService.getData().subscribe((data) => {
+      this.data = data;
+      console.log(this.data);
+    });
+  }
 }

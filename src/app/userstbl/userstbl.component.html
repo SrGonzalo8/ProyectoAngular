@@ -1,23 +1,27 @@
-<table class="table table-bordered border-primary">
+<nz-table #basicTable [nzData]="data">
   <thead>
     <tr>
-      <th scope="col">Firstname</th>
-      <th scope="col">Username</th>
-      <th scope="col">Lastname</th>
-      <th scope="col">Email</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Birthdate</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td > </td>
+    <tr *ngFor="let data of basicTable.data">
+      <td>{{ data.username }}</td>
+      <td>{{ data.firstname }}</td>
+      <td>{{ data.lastname }}</td>
+      <td>
+        <a>Action 一 {{ data.name }}</a>
+        <a>Delete</a>
+      </td>
     </tr>
   </tbody>
-</table>
+</nz-table>
 
 <ul>
   <li *ngFor="let item of data">
-    {{ item }}
+    {{ item.name }}
   </li>
 </ul>

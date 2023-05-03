@@ -20,7 +20,7 @@ import { CommonModule } from '@angular/common';
 import { FormularioComponent } from './formulario/formulario.component';
 import { FormularioModule } from './formulario/formulario.module';
 import { UserstblComponent } from './userstbl/userstbl.component';
-
+import { NzTableModule } from 'ng-zorro-antd/table';
 
 registerLocaleData(en);
 
@@ -55,6 +55,7 @@ const routes: Routes = [
     FormularioModule,
     CommonModule,
     RouterModule.forRoot(routes),
+    NzTableModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
