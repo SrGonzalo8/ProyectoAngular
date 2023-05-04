@@ -1,9 +1,12 @@
 <nz-table #basicTable [nzData]="data">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Address</th>
+      <th>Nombre de usuario</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Teléfono</th>
+      <th>Fecha de nacimiento</th>
       <th>Action</th>
     </tr>
   </thead>
@@ -12,16 +15,13 @@
       <td>{{ data.username }}</td>
       <td>{{ data.firstname }}</td>
       <td>{{ data.lastname }}</td>
+      <td>{{ data.email }}</td>
+      <td>{{ data.phone }}</td>
+      <td>{{ data.birthdate }}</td>
       <td>
-        <a>Action 一 {{ data.name }}</a>
-        <a>Delete</a>
+        <a> Modificar </a>
+        <!-- <a (click)="removeData(id)"> Borrar</a> -->
       </td>
     </tr>
   </tbody>
 </nz-table>
-
-<ul>
-  <li *ngFor="let item of data">
-    {{ item.name }}
-  </li>
-</ul>

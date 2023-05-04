@@ -17,7 +17,13 @@ export class UserstblComponent implements OnInit {
   llenarData() {
     this.ApiService.getData().subscribe((data) => {
       this.data = data;
-      console.log(this.data);
+      console.log(this.data); //solo sirve para comprobar que llega la lista de los usuarios se puede borrar
     });
   }
+
+  // removeData(id: string) {
+  //   this.ApiService.removeUser(id).subscribe(() =>{
+  //     this.ApiService = this.ApiService.filter(users => users.id !== id)
+  //   });
+  // }
 }
