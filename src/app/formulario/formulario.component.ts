@@ -8,13 +8,11 @@ import { user } from './models/user.interface';
   styleUrls: ['./formulario.component.sass'],
 })
 export class FormularioComponent {
-  users: user[] = [];
-  constructor(private ApiService: ApiService) {}
-
   persona = {
     name: '',
     lastname: '',
     username: '',
+    password: '',
     email: '',
     phone: '',
     birthdate: '',
