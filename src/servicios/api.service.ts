@@ -1,22 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-
+import { Observable, catchError } from 'rxjs';
+import { FormularioComponent } from 'src/app/formulario/formulario.component';
+import { user } from '../app/formulario/models/user.interface';
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  filter(arg0: (users: any) => boolean): ApiService {
-    throw new Error('Method not implemented.');
-  }
   private urlApi = 'http://localhost:3000/users/';
 
   constructor(private http: HttpClient) {}
+
   public getData(): Observable<any> {
-    return this.http.get<any>(this.urlApi);
+    return this.http.get<any>(this.urlApi); //cambiar any
   }
 
-  public removeUser(id: number): Observable<any> {
-    return this.http.delete(this.urlApi);
+  addUser(user: user): Observable<user> {
+    const url = `${this.urlApi}/users`;
+    return this.http.post<user>(this.urlApi, user);
   }
 }
