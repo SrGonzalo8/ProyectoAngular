@@ -7,10 +7,14 @@ import { FormularioModule } from './formulario.module';
   styleUrls: ['./formulario.component.sass'],
 })
 export class FormularioComponent {
+  static module(arg0: string) {
+    throw new Error('Method not implemented.');
+  }
   persona = {
     name: '',
     lastname: '',
     username: '',
+    password: '',
     email: '',
     phone: '',
     birthdate: '',

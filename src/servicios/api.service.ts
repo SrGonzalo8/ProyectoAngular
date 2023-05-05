@@ -19,4 +19,5 @@ export class ApiService {
   public removeUser(id: number): Observable<any> {
     return this.http.delete(this.urlApi);
   }
+  
 }

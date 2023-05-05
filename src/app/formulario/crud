@@ -1,0 +1,41 @@
+angular.module("myApp").controller("CrudController", function ($scope, $http) {
+  $scope.users = [];
+
+  // Función para obtener todos los items de la API
+  $scope.getUsers = function () {
+    $http.get("http://miapi.com/users").then(function (response) {
+      $scope.users = response.data;
+    });
+  };
+
+  // Función para crear un nuevo item en la API
+  $scope.createUser = function (user) {
+    $http.post("http://miapi.com/users", user).then(function (response) {
+      $scope.users.push(response.data);
+    });
+  };
+
+  // Función para actualizar un item existente en la API
+  $scope.updateUser = function (user) {
+    $http
+      .put("http://miapi.com/users/" + user.id, user)
+      .then(function (response) {
+        // Actualizar el item en la lista
+        var index = $scope.users.findIndex(function (i) {
+          return i.id === user.id;
+        });
+        $scope.users[index] = response.data;
+      });
+  };
+
+  // Función para eliminar un item existente en la API
+  $scope.deleteUser = function (user) {
+    $http.delete("http://miapi.com/users/" + user.id).then(function () {
+      // Eliminar el item de la lista
+      var index = $scope.users.findIndex(function (i) {
+        return i.id === user.id;
+      });
+      $scope.users.splice(index, 1);
+    });
+  };
+});

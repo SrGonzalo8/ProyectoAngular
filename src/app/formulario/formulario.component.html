@@ -59,9 +59,22 @@
           #username="ngModel"
         />
       </div>
+      <div class="mb-2">
+        <label class="form-label">Contraseña: </label>
+
+        <input
+          type="text"
+          name="password"
+          class="form-control"
+          placeholder="Introduce una contaseña"
+          [(ngModel)]="persona.password"
+          required
+          #password="ngModel"
+        />
+      </div>
       <div
         class="alert alert-danger mt-2"
-        [hidden]="username.valid || username.pristine"
+        [hidden]="password.valid || password.pristine"
       >
         El usuario es obligatorio
       </div>
@@ -124,7 +137,13 @@
       >
         La fecha de nacimiento es obligatoria
       </div>
-      <button class="btn btn-primary mt-2" [disabled]="formContact.invalid">
+
+      <button
+        type="submit"
+        ng-click="submitForm()"
+        class="btn btn-primary mt-2"
+        [disabled]="formContact.invalid"
+      >
         Enviar
       </button>
     </form>
