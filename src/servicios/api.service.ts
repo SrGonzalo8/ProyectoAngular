@@ -19,10 +19,6 @@ export class ApiService {
     return this.http.post<User>(url, user);
   }
 
-  public modificarTabla(id: number, datos: any) { 
-    return this.http.put(`/api/tabla/${id}`, datos);
-  }
-
   public updateUser(user: User): Observable<User> {
     return this.http.put<User>(this.urlApi, user) 
   }
