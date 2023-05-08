@@ -31,6 +31,6 @@ export class FormularioComponent {
       password: this.persona.password,
     };
     this.apiService.addUser(newUser).subscribe((user) => this.users.push(user));
-    console.log(this.persona);
+    console.log(this.persona);//se puede borrar
   }
 }

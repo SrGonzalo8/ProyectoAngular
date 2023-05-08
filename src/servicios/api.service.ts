@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError,  } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 import { User } from '../app/formulario/models/user.interface';
 @Injectable({
   providedIn: 'root',
@@ -19,8 +19,11 @@ export class ApiService {
     return this.http.post<User>(url, user);
   }
 
-  public updateUser(user: User): Observable<User> {
-    return this.http.put<User>(this.urlApi, user) 
+  public deleteUser(id: number): Observable<User> {
+    return this.http.delete(this.urlApi);
   }
 
+  public updateUser(user: User): Observable<User> {
+    return this.http.put<User>(this.urlApi, user);
+  }
 }
