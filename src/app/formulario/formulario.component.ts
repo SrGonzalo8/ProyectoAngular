@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormularioModule } from './formulario.module';
 import { ApiService } from '../../servicios/api.service';
-import { user } from './models/user.interface';
+import { User } from './models/user.interface';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -9,7 +9,7 @@ import { user } from './models/user.interface';
 })
 export class FormularioComponent {
   persona = {
-    name: '',
+    firstname: '',
     lastname: '',
     username: '',
     password: '',
@@ -17,15 +17,20 @@ export class FormularioComponent {
     phone: '',
     birthdate: '',
   };
+  constructor(private apiService: ApiService) {}
+
+  users: any[] = [];
   procesar() {
-    const newUser: user = {
-      name: this.persona.name,
+    const newUser: User = {
+      firstname: this.persona.firstname,
       lastname: this.persona.lastname,
       username: this.persona.username,
       email: this.persona.email,
       phone: this.persona.phone,
       birthdate: this.persona.birthdate,
+      password: this.persona.password,
     };
-    this.ApiService.addUser(newUser).subscribe((user) => this.users.push(user));
+    this.apiService.addUser(newUser).subscribe((user) => this.users.push(user));
+    console.log(this.persona);
   }
 }
