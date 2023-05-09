@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../servicios/api.service';
+import { NzButtonSize } from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'app-userstbl',
@@ -20,6 +21,4 @@ export class UserstblComponent implements OnInit {
       console.log(this.data); //borrarlo cuando termine
     });
   }
-
-
 }
