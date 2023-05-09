@@ -4,8 +4,7 @@ import { User } from '../formulario/models/user.interface';
 
 @Component({
   selector: 'app-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.sass'],
+  templateUrl: './update.component.html'
 })
 export class UpdateComponent {
   persona = {
@@ -34,4 +33,6 @@ export class UpdateComponent {
       .updateUser(updateUser)
       .subscribe((user) => this.users.push(user));
   }
+
+  
 }

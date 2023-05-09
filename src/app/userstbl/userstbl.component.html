@@ -19,7 +19,12 @@
       <td>{{ data.phone }}</td>
       <td>{{ data.birthdate }}</td>
       <td>
-        <button nz-button nzType="primary" nzShape="circle">
+        <button
+          nz-button
+          nzType="primary"
+          nzShape="circle"
+          [routerLink]="['/edituser', data.id]"
+        >
           <span nz-icon nzType="edit" nzTheme="outline"></span>
         </button>
         <button nz-button nzType="primary" nzShape="circle">
