@@ -10,7 +10,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  public getData(): Observable<any> {
+  public getUser(): Observable<any> {
     return this.http.get<any>(this.urlApi);
   }
 
@@ -19,8 +19,9 @@ export class ApiService {
     return this.http.post<User>(url, user);
   }
 
-  public deleteUser(id: number): Observable<User> {
-    return this.http.delete(this.urlApi);
+  public deleteUser(id: number): Observable<void> {
+    const url = `${this.urlApi}${id}`;
+    return this.http.delete<void>(url);
   }
 
   public updateUser(user: User): Observable<User> {

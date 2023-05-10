@@ -13,12 +13,17 @@ export class UserstblComponent implements OnInit {
   constructor(private ApiService: ApiService) {}
 
   ngOnInit(): void {
-    this.llenarData();
+    this.loadUser();
   }
-  llenarData() {
-    this.ApiService.getData().subscribe((data) => {
+  loadUser() {
+    this.ApiService.getUser().subscribe((data) => {
       this.data = data;
       console.log(this.data); //borrarlo cuando termine
+    });
+  }
+  deleteUser(id: number, index: number) {
+    this.ApiService.deleteUser(id).subscribe((response) => {
+      this.data.splice(index, 1);
     });
   }
 }
