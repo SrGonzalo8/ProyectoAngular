@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../servicios/api.service';
 import { User } from '../formulario/models/user.interface';
 
 @Component({
   selector: 'app-update',
-  templateUrl: './update.component.html'
+  templateUrl: './update.component.html',
 })
-export class UpdateComponent {
+export class UpdateComponent implements OnInit {
   persona = {
     firstname: '',
     lastname: '',
@@ -17,6 +17,11 @@ export class UpdateComponent {
     birthdate: '',
   };
   constructor(private apiService: ApiService) {}
+  ngOnInit(): void {
+    this.apiService.getData().subscribe((data: any) => {
+      this.users = data; // Asigna los datos del usuario obtenidos al objeto user
+    });
+  }
 
   users: any[] = [];
   procesarUpdate() {
@@ -33,6 +38,4 @@ export class UpdateComponent {
       .updateUser(updateUser)
       .subscribe((user) => this.users.push(user));
   }
-
-  
 }
