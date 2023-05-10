@@ -16,7 +16,7 @@
           name="name"
           class="form-control"
           placeholder="Introduce un nombre"
-          [(ngModel)]="persona.firstname"
+          [(ngModel)]="user.firstname"
           required
           #name="ngModel"
         />
@@ -35,7 +35,7 @@
           name="lastname"
           class="form-control"
           placeholder="Introduce un apellido"
-          [(ngModel)]="persona.lastname"
+          [(ngModel)]="user.lastname"
           required
           #lastname="ngModel"
         />
@@ -54,7 +54,7 @@
           name="username"
           class="form-control"
           placeholder="Introduce un nombre de usuario"
-          [(ngModel)]="persona.username"
+          [(ngModel)]="user.username"
           required
           #username="ngModel"
         />
@@ -67,11 +67,12 @@
           name="password"
           class="form-control"
           placeholder="Introduce una contaseña"
-          [(ngModel)]="persona.password"
+          [(ngModel)]="user.password"
           required
           #password="ngModel"
         />
       </div>
+
       <div
         class="alert alert-danger mt-2"
         [hidden]="password.valid || password.pristine"
@@ -86,7 +87,7 @@
           name="email"
           class="form-control"
           placeholder="Introduce un email"
-          [(ngModel)]="persona.email"
+          [(ngModel)]="user.email"
           required
           #email="ngModel"
         />
@@ -105,7 +106,7 @@
           name="phone"
           class="form-control"
           placeholder="Introduce un número de teléfono"
-          [(ngModel)]="persona.phone"
+          [(ngModel)]="user.phone"
           #phone="ngModel"
           ng-pattern="/^\d{9}$/"
           required
@@ -126,7 +127,7 @@
           name="birthdate"
           class="form-control"
           placeholder="Introduce una fecha de nacimiento"
-          [(ngModel)]="persona.birthdate"
+          [(ngModel)]="user.birthdate"
           required
           #birthdate="ngModel"
         />
@@ -137,6 +138,13 @@
       >
         La fecha de nacimiento es obligatoria
       </div>
+
+      <nz-alert
+        *ngIf="errorMsg"
+        nzType="error"
+        [nzMessage]="errorMsg"
+        nzShowIcon
+      ></nz-alert>
 
       <button
         type="submit"

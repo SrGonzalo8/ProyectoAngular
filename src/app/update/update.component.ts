@@ -1,41 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../servicios/api.service';
 import { User } from '../formulario/models/user.interface';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update',
   templateUrl: './update.component.html',
 })
 export class UpdateComponent implements OnInit {
-  persona = {
-    firstname: '',
-    lastname: '',
-    username: '',
-    password: '',
-    email: '',
-    phone: '',
-    birthdate: '',
-  };
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    private routeActivated: ActivatedRoute
+  ) {}
+
+  user!: User;
+  errorMsg!: string;
+
   ngOnInit(): void {
-    this.apiService.getUser().subscribe((data: any) => {
-      this.users = data; // Asigna los datos del usuario obtenidos al objeto user
+    const userId = this.routeActivated.snapshot.params['userId'];
+    this.apiService.getUser(userId).subscribe((data: User) => {
+      this.user = data; // Asigna los datos del usuario obtenidos al objeto user
     });
   }
 
-  users: any[] = [];
   procesarUpdate() {
-    const updateUser: User = {
-      firstname: this.persona.firstname,
-      lastname: this.persona.lastname,
-      username: this.persona.username,
-      email: this.persona.email,
-      phone: this.persona.phone,
-      birthdate: this.persona.birthdate,
-      password: this.persona.password,
-    };
-    this.apiService
-      .updateUser(updateUser)
-      .subscribe((user) => this.users.push(user));
+    this.apiService.updateUser(this.user).subscribe({
+      next: () => {
+        this.router.navigate(['userstbl']);
+      },
+      error: (err) => {
+        this.errorMsg = err.error.message;
+      },
+    });
   }
 }

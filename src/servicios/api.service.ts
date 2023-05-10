@@ -10,8 +10,12 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  public getUser(): Observable<any> {
-    return this.http.get<any>(this.urlApi);
+  public getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.urlApi);
+  }
+
+  public getUser(userId: number): Observable<User> {
+    return this.http.get<User>(this.urlApi + userId);
   }
 
   public addUser(user: User): Observable<User> {
@@ -25,6 +29,6 @@ export class ApiService {
   }
 
   public updateUser(user: User): Observable<User> {
-    return this.http.put<User>(this.urlApi, user);
+    return this.http.put<User>(this.urlApi + user.id, user);
   }
 }

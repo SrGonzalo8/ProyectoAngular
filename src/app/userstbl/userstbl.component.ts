@@ -16,7 +16,7 @@ export class UserstblComponent implements OnInit {
     this.loadUser();
   }
   loadUser() {
-    this.ApiService.getUser().subscribe((data) => {
+    this.ApiService.getUsers().subscribe((data) => {
       this.data = data;
       console.log(this.data); //borrarlo cuando termine
     });
