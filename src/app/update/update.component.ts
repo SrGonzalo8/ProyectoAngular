@@ -18,7 +18,7 @@ export class UpdateComponent implements OnInit {
   };
   constructor(private apiService: ApiService) {}
   ngOnInit(): void {
-    this.apiService.getData().subscribe((data: any) => {
+    this.apiService.getUser().subscribe((data: any) => {
       this.users = data; // Asigna los datos del usuario obtenidos al objeto user
     });
   }

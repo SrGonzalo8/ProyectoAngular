@@ -32,7 +32,7 @@
           nzType="primary"
           nzShape="circle"
           (click)="deleteUser(data.id, i)"
-          [routerLink]="['/edituser', data.id]"
+          onclick="window.location.href = '/userstbl'"
         >
           <span nz-icon nzType="delete" nzTheme="outline"></span>
         </button>
