@@ -17,6 +17,13 @@ export class ApiService {
     const urlgroup = this.urlApiGroups;
     return this.http.post<Group>(urlgroup, group);
   }
+  public getGroups(): Observable<Group[]> {
+    return this.http.get<Group[]>(this.urlApiGroups);
+  }
+  public deleteGroup(id: number): Observable<void> {
+    const urlgroup = `${this.urlApiGroups}${id}`;
+    return this.http.delete<void>(urlgroup);
+  }
 
   //SERVICIOS USERS
   public getUsers(): Observable<User[]> {

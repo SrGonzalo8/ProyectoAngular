@@ -19,11 +19,12 @@ import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { CommonModule } from '@angular/common';
 import { FormularioComponent } from './formulario/formulario.component';
 import { FormularioModule } from './formulario/formulario.module';
-import { UserstblComponent } from './userstbl/userstbl.component';
+import { UserstblComponent } from './tables/userstbl/userstbl.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { UpdateComponent } from './update/update.component';
 import { UpdateModule } from './update/update.module';
 import { FormgroupComponent } from './formulario/formgroup/formgroup.component';
+import { GroupstblComponent } from './tables/userstbl/groupstbl/groupstbl.component';
 
 registerLocaleData(en);
 
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'grupos',
     component: FormgroupComponent,
+  },
+  {
+    path: 'groupstbl',
+    component: GroupstblComponent,
   },
 ];
 

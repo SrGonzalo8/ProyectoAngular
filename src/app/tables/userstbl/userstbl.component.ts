@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../servicios/api.service';
+import { ApiService } from '../../../servicios/api.service';
 import { NzButtonSize } from 'ng-zorro-antd/button';
 
 @Component({
