@@ -24,7 +24,7 @@ import { NzTableModule } from 'ng-zorro-antd/table';
 import { UpdateComponent } from './update/update.component';
 import { UpdateModule } from './update/update.module';
 import { FormgroupComponent } from './formulario/formgroup/formgroup.component';
-import { GroupstblComponent } from './tables/userstbl/groupstbl/groupstbl.component';
+import { GroupstblComponent } from './groupstbl/groupstbl.component';
 
 registerLocaleData(en);
 
@@ -56,7 +56,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, UserstblComponent],
+  declarations: [AppComponent, UserstblComponent, GroupstblComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
