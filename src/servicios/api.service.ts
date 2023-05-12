@@ -8,14 +8,17 @@ import { Group } from '../app/formulario/models/group.interface';
 })
 export class ApiService {
   private urlApi = 'http://localhost:3000/users/';
+  private urlApiGroups = 'http://localhost:3000/groups/';
 
   constructor(private http: HttpClient) {}
 
+  //SERVICIOS GRUPOS
   public addGroup(group: Group): Observable<Group> {
-    const url = this.urlApi;
-    return this.http.post<Group>(url, group);
+    const urlgroup = this.urlApiGroups;
+    return this.http.post<Group>(urlgroup, group);
   }
 
+  //SERVICIOS USERS
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.urlApi);
   }
