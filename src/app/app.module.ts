@@ -23,7 +23,7 @@ import { UserstblComponent } from './userstbl/userstbl.component';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { UpdateComponent } from './update/update.component';
 import { UpdateModule } from './update/update.module';
-
+import { FormgroupComponent } from './formulario/formgroup/formgroup.component';
 
 registerLocaleData(en);
 
@@ -44,6 +44,10 @@ const routes: Routes = [
     path: 'edituser/:userId',
     component: UpdateComponent,
   },
+  {
+    path: 'grupos',
+    component: FormgroupComponent,
+  },
 ];
 
 @NgModule({
@@ -61,7 +65,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes),
     NzTableModule,
-    UpdateModule
+    UpdateModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

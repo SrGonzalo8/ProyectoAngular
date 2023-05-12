@@ -1,0 +1,42 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+  />
+</head>
+
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="procesarGrupo()" #formContact="ngForm">
+      <div class="mb-2">
+        <label class="form-label">Nombre del nuevo grupo: </label>
+
+        <input
+          type="text"
+          name="name"
+          class="form-control"
+          placeholder="Introduce un nombre para el grupo"
+          [(ngModel)]="group.name"
+          required
+          #name="ngModel"
+        />
+      </div>
+      <div
+        class="alert alert-danger mt-2"
+        [hidden]="name.valid || name.pristine"
+      >
+        El nombre es obligatorio
+      </div>
+
+      <button
+        type="submit"
+        ng-click="submitForm()"
+        class="btn btn-primary mt-2"
+        [disabled]="formContact.invalid"
+        onclick="window.location.href = '/userstbl'"
+      >
+        Enviar
+      </button>
+    </form>
+  </div>
+</div>

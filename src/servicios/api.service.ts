@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { User } from '../app/formulario/models/user.interface';
+import { Group } from '../app/formulario/models/group.interface';
 @Injectable({
   providedIn: 'root',
 })
@@ -9,6 +10,11 @@ export class ApiService {
   private urlApi = 'http://localhost:3000/users/';
 
   constructor(private http: HttpClient) {}
+
+  public addGroup(group: Group): Observable<Group> {
+    const url = this.urlApi;
+    return this.http.post<Group>(url, group);
+  }
 
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.urlApi);
