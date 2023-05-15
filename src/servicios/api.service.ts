@@ -24,6 +24,10 @@ export class ApiService {
     const urlgroup = `${this.urlApiGroups}${id}`;
     return this.http.delete<void>(urlgroup);
   }
+  public getUsersByGroup(groupId: number): Observable<User[]> {
+    const url = `${this.urlApiGroups}${groupId}/users`;
+    return this.http.get<User[]>(url);
+  }
 
   //SERVICIOS USERS
   public getUsers(): Observable<User[]> {
