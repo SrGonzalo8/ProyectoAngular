@@ -20,7 +20,6 @@ export class UserstblComponent implements OnInit {
   loadUser() {
     this.ApiService.getUsers().subscribe((data) => {
       this.data = data;
-      console.log(this.data); //borrarlo cuando termine
     });
   }
   deleteUser(id: number, index: number) {
