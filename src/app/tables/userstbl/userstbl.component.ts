@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../../servicios/api.service';
-import { NzButtonSize } from 'ng-zorro-antd/button';
+import { Group } from '../../formulario/models/group.interface';
 
 @Component({
   selector: 'app-userstbl',
@@ -9,11 +9,13 @@ import { NzButtonSize } from 'ng-zorro-antd/button';
 })
 export class UserstblComponent implements OnInit {
   data: any[] = [];
+  groups: Group[] = [];
 
   constructor(private ApiService: ApiService) {}
 
   ngOnInit(): void {
     this.loadUser();
+    this.loadGroups();
   }
   loadUser() {
     this.ApiService.getUsers().subscribe((data) => {
@@ -24,6 +26,16 @@ export class UserstblComponent implements OnInit {
   deleteUser(id: number, index: number) {
     this.ApiService.deleteUser(id).subscribe((response) => {
       this.data.splice(index, 1);
+    });
+  }
+  loadGroups() {
+    this.ApiService.getGroups().subscribe((groups) => {
+      this.groups = groups;
+    });
+  }
+  assignGroupToUser(user: any) {
+    this.ApiService.addUserToGroup(user.groupId, user.id).subscribe(() => {
+      console.log('Usuario asignado al grupo correctamente');
     });
   }
 }
