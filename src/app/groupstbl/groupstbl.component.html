@@ -7,7 +7,12 @@
   <tbody>
     <tr *ngFor="let data of basicTable.data; let i = index">
       <td>{{ data.name }}</td>
-      <button nz-button nzType="primary" nzShape="circle">
+      <button
+        nz-button
+        nzType="primary"
+        nzShape="circle"
+        [routerLink]="['/usrlsgroup', data.id]"
+      >
         <span nz-icon nzType="edit" nzTheme="outline"></span>
       </button>
       <button

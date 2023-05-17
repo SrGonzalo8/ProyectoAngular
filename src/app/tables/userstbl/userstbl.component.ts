@@ -9,13 +9,13 @@ import { Group } from '../../formulario/models/group.interface';
 })
 export class UserstblComponent implements OnInit {
   data: any[] = [];
-  groups: Group[] = [];
+ // groups: Group[] = [];
 
   constructor(private ApiService: ApiService) {}
 
   ngOnInit(): void {
     this.loadUser();
-    this.loadGroups();
+    //this.loadGroups();
   }
   loadUser() {
     this.ApiService.getUsers().subscribe((data) => {
@@ -27,14 +27,15 @@ export class UserstblComponent implements OnInit {
       this.data.splice(index, 1);
     });
   }
-  loadGroups() {
-    this.ApiService.getGroups().subscribe((groups) => {
-      this.groups = groups;
-    });
-  }
-  assignGroupToUser(user: any) {
-    this.ApiService.addUserToGroup(user.groupId, user.id).subscribe(() => {
-      console.log('Usuario asignado al grupo correctamente');
-    });
-  }
+  // loadGroups() {
+  //   this.ApiService.getGroups().subscribe((groups) => {
+  //     this.groups = groups;
+  //   });
+  // }
+  // assignGroupToUser(user: any) {
+  //   this.ApiService.addUserToGroup(user.groupId, user.id).subscribe(() => {
+  //     console.log('Usuario asignado al grupo correctamente');
+  //   });
+  // }
+  //crees que usar el orm y cuales son sus ventajas
 }

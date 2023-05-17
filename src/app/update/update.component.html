@@ -154,6 +154,27 @@
       >
         Enviar
       </button>
+
+      <!-- <nz-select
+        nzMode="tags"
+        nzPlaceHolder="Tag Mode"
+        [(ngModel)]="listOfTagOptions"
+      >
+        <nz-option
+          *ngFor="let option of listOfOption"
+          [nzLabel]="option.label"
+          [nzValue]="option.value"
+        ></nz-option>
+      </nz-select> -->
+      <nz-select
+        nzSize="large"
+        nzMode="multiple"
+        nzPlaceHolder="Please select"
+        [(ngModel)]="groupIds"
+      >
+        <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
     </form>
   </div>
 </div>
