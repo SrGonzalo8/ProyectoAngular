@@ -17,6 +17,9 @@ export class FormularioComponent {
     phone: '',
     birthdate: '',
   };
+  groupIds = [];
+  listOfGroups = [1, 2, 3, 4, 5, 6, 7, 8];
+
   constructor(private apiService: ApiService) {}
 
   users: any[] = [];
@@ -31,6 +34,6 @@ export class FormularioComponent {
       password: this.persona.password,
     };
     this.apiService.addUser(newUser).subscribe((user) => this.users.push(user));
-    console.log(this.persona);//se puede borrar
+    console.log(this.persona); //se puede borrar
   }
 }
