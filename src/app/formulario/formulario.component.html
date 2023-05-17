@@ -137,6 +137,18 @@
       >
         La fecha de nacimiento es obligatoria
       </div>
+      <div class="mb-2">
+        <label class="form-label">Grupos del usuario: </label>
+        <nz-select
+          nzSize="large"
+          nzMode="multiple"
+          nzPlaceHolder="Please select"
+          [(ngModel)]="groupIds"
+        >
+          <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+          <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+        </nz-select>
+      </div>
 
       <button
         type="submit"

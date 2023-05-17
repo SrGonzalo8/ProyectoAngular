@@ -55,7 +55,6 @@ const routes: Routes = [
     path: 'groupstbl',
     component: GroupstblComponent,
   },
- 
 ];
 
 @NgModule({
@@ -76,7 +75,7 @@ const routes: Routes = [
     UpdateModule,
     FormsModule,
     NzFormModule,
-    NzSelectModule
+    NzSelectModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
