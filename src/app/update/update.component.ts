@@ -9,6 +9,7 @@ import { Group } from '../formulario/models/group.interface';
   templateUrl: './update.component.html',
 })
 export class UpdateComponent implements OnInit {
+
   constructor(
     private ApiService: ApiService,
     private router: Router,
@@ -19,7 +20,9 @@ export class UpdateComponent implements OnInit {
   user!: User;
   errorMsg!: string;
   groups: Group[] = [];
-
+  groupIds = [];
+  listOfGroups = [1, 2, 3, 4, 5, 6, 7, 8];
+  
   ngOnInit(): void {
     const userId = this.routeActivated.snapshot.params['userId'];
     this.ApiService.getUser(userId).subscribe((data: User) => {

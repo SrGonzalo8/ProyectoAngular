@@ -37,4 +37,5 @@ export class UserstblComponent implements OnInit {
   //     console.log('Usuario asignado al grupo correctamente');
   //   });
   // }
+  //crees que usar el orm y cuales son sus ventajas
 }

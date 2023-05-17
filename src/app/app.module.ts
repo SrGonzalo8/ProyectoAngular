@@ -27,6 +27,7 @@ import { UpdateModule } from './update/update.module';
 import { FormgroupComponent } from './formulario/formgroup/formgroup.component';
 import { GroupstblComponent } from './groupstbl/groupstbl.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { UsrlsgroupComponent } from './usrlsgroup/usrlsgroup.component';
 
 registerLocaleData(en);
 
@@ -55,10 +56,19 @@ const routes: Routes = [
     path: 'groupstbl',
     component: GroupstblComponent,
   },
+  {
+    path: 'usrlsgroup/:groupId',
+    component: UsrlsgroupComponent,
+  },
 ];
 
 @NgModule({
-  declarations: [AppComponent, UserstblComponent, GroupstblComponent],
+  declarations: [
+    AppComponent,
+    UserstblComponent,
+    GroupstblComponent,
+    UsrlsgroupComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
