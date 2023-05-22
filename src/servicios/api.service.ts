@@ -9,6 +9,7 @@ import { Group } from '../app/formulario/models/group.interface';
 export class ApiService {
   private urlApi = 'http://localhost:3000/users/';
   private urlApiGroups = 'http://localhost:3000/groups/';
+  apiUrl: any;
 
   constructor(private http: HttpClient) {}
 
@@ -30,7 +31,7 @@ export class ApiService {
     const url = `${this.urlApiGroups}${groupId}/addUser/${userId}`;
     return this.http.post(url, null);
   }
-  public getUsersByGroup(groupId: number | undefined): Observable<User[]> {
+  public getUsersByGroup(groupId: number): Observable<User[]> {
     const url = `${this.urlApiGroups}${groupId}/users`;
     return this.http.get<User[]>(url);
   }

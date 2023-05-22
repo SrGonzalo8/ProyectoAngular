@@ -6,7 +6,7 @@ import { User } from '../formulario/models/user.interface';
 @Component({
   selector: 'app-usrlsgroup',
   templateUrl: './usrlsgroup.component.html',
-  styleUrls: ['./usrlsgroup.component.sass']
+  styleUrls: ['./usrlsgroup.component.sass'],
 })
 export class UsrlsgroupComponent implements OnInit {
   groupId: number | undefined;
@@ -19,15 +19,17 @@ export class UsrlsgroupComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.groupId = +params['groupId'];
       this.getUsersByGroup();
     });
   }
 
   getUsersByGroup() {
-    this.apiService.getUsersByGroup(this.groupId).subscribe(users => {
-      this.users = users;
-    });
+    if (this.groupId) {
+      this.apiService.getUsersByGroup(this.groupId).subscribe(users => {
+        this.users = users;
+      });
+    }
   }
 }

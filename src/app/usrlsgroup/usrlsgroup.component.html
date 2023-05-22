@@ -1,5 +1,7 @@
 <nz-list [nzDataSource]="users">
   <ng-template nzListItem let-user>
-    <nz-list-item [nzContent]="user.name"></nz-list-item>
+    <nz-list-item
+      [nzContent]="user.firstname + ' ' + user.lastname"
+    ></nz-list-item>
   </ng-template>
 </nz-list>

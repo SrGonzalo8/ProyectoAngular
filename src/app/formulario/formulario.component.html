@@ -108,38 +108,28 @@
 
   <!-- GRUPO -->
   <nz-form-item>
-       
     <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="groupIds"
       >Añadir a un grupo</nz-form-label
     >
-
-       
     <nz-form-control
       [nzSm]="14"
       [nzXs]="24"
       nzErrorTip="Introduce un grupo válido"
     >
-           <nz-select
+      <nz-select
         nzSize="large"
         nzMode="multiple"
         nzPlaceHolder="Selecciona el/los grupos deseados"
         [(ngModel)]="groupIds"
         name="group"
       >
-           
         <nz-option
           *ngFor="let group of listOfGroups"
           [nzValue]="group.id"
           [nzLabel]="group.name ? group.name.toString() : ''"
         ></nz-option>
-
-         
       </nz-select>
-
-         
     </nz-form-control>
-
-     
   </nz-form-item>
 
   <!-- BOTON -->

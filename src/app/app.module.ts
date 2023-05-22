@@ -93,7 +93,7 @@ const routes: Routes = [
     FormsModule,
     NzFormModule,
     NzSelectModule,
-    NzListModule
+    NzListModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
