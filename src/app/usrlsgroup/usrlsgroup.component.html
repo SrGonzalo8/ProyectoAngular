@@ -1,4 +1,5 @@
-<nz-select nzSize="large" nzMode="multiple" nzPlaceHolder="Please select">
-  <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-  <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
-</nz-select>
+<nz-list [nzDataSource]="users">
+  <ng-template nzListItem let-user>
+    <nz-list-item [nzContent]="user.name"></nz-list-item>
+  </ng-template>
+</nz-list>

@@ -30,7 +30,10 @@ export class ApiService {
     const url = `${this.urlApiGroups}${groupId}/addUser/${userId}`;
     return this.http.post(url, null);
   }
-
+  public getUsersByGroup(groupId: number | undefined): Observable<User[]> {
+    const url = `${this.urlApiGroups}${groupId}/users`;
+    return this.http.get<User[]>(url);
+  }
   //SERVICIOS USERS
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.urlApi);

@@ -29,6 +29,7 @@ import { GroupstblComponent } from './groupstbl/groupstbl.component';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { UsrlsgroupComponent } from './usrlsgroup/usrlsgroup.component';
 import { PruebaComponent } from './prueba/prueba.component';
+import { NzListModule } from 'ng-zorro-antd/list';
 
 registerLocaleData(en);
 
@@ -92,6 +93,7 @@ const routes: Routes = [
     FormsModule,
     NzFormModule,
     NzSelectModule,
+    NzListModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
