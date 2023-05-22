@@ -1,165 +1,142 @@
-<head>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-  />
-</head>
+<form nz-form (ngSubmit)="procesar()" #formContact="ngForm">
+  <!-- NOMBRE -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="name"
+      >Nombre</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce un nombre válido"
+    >
+      <input nz-input [(ngModel)]="persona.firstname" name="firstname" />
+    </nz-form-control>
+  </nz-form-item>
 
-<div class="card">
-  <div class="card-body">
-    <form (ngSubmit)="procesar()" #formContact="ngForm">
-      <div class="mb-2">
-        <label class="form-label">Nombre: </label>
+  <!-- APELLIDO -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="lastname"
+      >Apellido</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce un apellido válido"
+    >
+      <input nz-input [(ngModel)]="persona.lastname" name="lastname" />
+    </nz-form-control>
+  </nz-form-item>
 
-        <input
-          type="text"
-          name="name"
-          class="form-control"
-          placeholder="Introduce un nombre"
-          [(ngModel)]="persona.firstname"
-          required
-          #name="ngModel"
-        />
-      </div>
-      <div
-        class="alert alert-danger mt-2"
-        [hidden]="name.valid || name.pristine"
-      >
-        El nombre es obligatorio
-      </div>
-      <div class="mb-2">
-        <label class="form-label">Apellido: </label>
+  <!-- USUARIO -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="username"
+      >Usuario</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce un usuario válido"
+    >
+      <input nz-input [(ngModel)]="persona.username" name="username" />
+    </nz-form-control>
+  </nz-form-item>
 
-        <input
-          type="text"
-          name="lastname"
-          class="form-control"
-          placeholder="Introduce un apellido"
-          [(ngModel)]="persona.lastname"
-          required
-          #lastname="ngModel"
-        />
-      </div>
-      <div
-        class="alert alert-danger mt-2"
-        [hidden]="lastname.valid || lastname.pristine"
-      >
-        El apellido es obligatorio
-      </div>
-      <div class="mb-2">
-        <label class="form-label">Usuario: </label>
+  <!-- CONTRASEÑA -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="password"
+      >Contraseña</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce una contraseña válida"
+    >
+      <input nz-input [(ngModel)]="persona.password" name="password" />
+    </nz-form-control>
+  </nz-form-item>
 
-        <input
-          type="text"
-          name="username"
-          class="form-control"
-          placeholder="Introduce un nombre de usuario"
-          [(ngModel)]="persona.username"
-          required
-          #username="ngModel"
-        />
-      </div>
-      <div class="mb-2">
-        <label class="form-label">Contraseña: </label>
+  <!-- EMAIL -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email"
+      >Email</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce un email válido"
+    >
+      <input nz-input [(ngModel)]="persona.email" name="email" />
+    </nz-form-control>
+  </nz-form-item>
 
-        <input
-          type="text"
-          name="password"
-          class="form-control"
-          placeholder="Introduce una contaseña"
-          [(ngModel)]="persona.password"
-          required
-          #password="ngModel"
-        />
-      </div>
-      <div
-        class="alert alert-danger mt-2"
-        [hidden]="password.valid || password.pristine"
-      >
-        El usuario es obligatorio
-      </div>
-      <div class="mb-2">
-        <label class="form-label">Email: </label>
-
-        <input
-          type="text"
-          name="email"
-          class="form-control"
-          placeholder="Introduce un email"
-          [(ngModel)]="persona.email"
-          required
-          #email="ngModel"
-        />
-      </div>
-      <div
-        class="alert alert-danger mt-2"
-        [hidden]="email.valid || email.pristine"
-      >
-        El email es obligatorio
-      </div>
-      <div class="mb-2">
-        <label class="form-label">Teléfono: </label>
-
-        <input
-          type="number"
-          name="phone"
-          class="form-control"
-          placeholder="Introduce un número de teléfono"
-          [(ngModel)]="persona.phone"
-          #phone="ngModel"
-          ng-pattern="/^\d{9}$/"
-          required
-        />
-        <!-- ng-pattern="/^[0-9]{9}$/" -->
-      </div>
-      <div
-        class="alert alert-danger mt-2"
-        [hidden]="phone.valid || phone.pristine"
-      >
-        El telefono es obligatorio
-      </div>
-      <div class="mb-2">
-        <label class="form-label">Fecha de nacimiento: </label>
-
-        <input
-          type="date"
-          name="birthdate"
-          class="form-control"
-          placeholder="Introduce una fecha de nacimiento"
-          [(ngModel)]="persona.birthdate"
-          required
-          #birthdate="ngModel"
-        />
-      </div>
-      <div
-        class="alert alert-danger mt-2"
-        [hidden]="birthdate.valid || birthdate.pristine"
-      >
-        La fecha de nacimiento es obligatoria
-      </div>
-      <div class="mb-2">
-        <label class="form-label">Grupos del usuario: </label>
-
-        <nz-select
-          nzSize="large"
-          nzMode="multiple"
-          nzPlaceHolder="Please select"
-          [(ngModel)]="groupIds"
-        >
-          <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-          <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+  <!-- TELEFONO -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="phoneNumber" nzRequired
+      >Número de teléfono</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce tu número de teléfono"
+    >
+      <ng-template #addOnBeforeTemplate>
+        <nz-select formControlName="phoneNumberPrefix" class="phone-select">
+          <nz-option nzLabel="+34" nzValue="+34"></nz-option>
+          <nz-option nzLabel="+87" nzValue="+87"></nz-option>
         </nz-select>
-      </div>
+      </ng-template>
+      <input nz-input [(ngModel)]="persona.phone" name="phone" />
+    </nz-form-control>
+  </nz-form-item>
 
-      <button
-        type="submit"
-        ng-click="submitForm()"
-        class="btn btn-primary mt-2"
-        [disabled]="formContact.invalid"
-        onclick="window.location.href = '/userstbl'"
+  <!-- FECHA DE NACIMIENTO -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="birthdate"
+      >Fecha de nacimiento</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce una fecha de nacimiento valida"
+    >
+      <nz-date-picker
+        [(ngModel)]="persona.birthdate"
+        name="birthdate"
+      ></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- GRUPO -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="groupIds"
+      >Añadir a un grupo</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce un grupo válido"
+    >
+      <nz-select
+        nzSize="large"
+        nzMode="multiple"
+        nzPlaceHolder="Selecciona el/los grupos deseados"
+        [(ngModel)]="groupIds"
+        name="group"
       >
-        Enviar
-      </button>
-    </form>
-  </div>
-</div>
+        <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+        <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- BOTON -->
+  <button
+    nz-button=""
+    nztype="primary"
+    class="ant-btn ant-btn-primary ant-btn-lg"
+    ng-click="procesar()"
+    [disabled]="formContact.invalid"
+  >
+    <span class="ng-star-inserted">Enviar</span>
+  </button>
+</form>

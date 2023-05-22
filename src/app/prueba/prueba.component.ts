@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PruebaComponent implements OnInit {
   listOfOption: string[] = [];
   listOfSelectedValue = [];
+tagPlaceHolder: any;
 
   ngOnInit(): void {
     const children: string[] = [];

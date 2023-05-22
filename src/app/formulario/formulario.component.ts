@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormularioModule } from './formulario.module';
 import { ApiService } from '../../servicios/api.service';
 import { User } from './models/user.interface';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -20,9 +21,8 @@ export class FormularioComponent {
   groupIds = [];
   listOfGroups = [1, 2, 3, 4, 5, 6, 7, 8];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
-  users: any[] = [];
   procesar() {
     const newUser: User = {
       firstname: this.persona.firstname,
@@ -33,7 +33,8 @@ export class FormularioComponent {
       birthdate: this.persona.birthdate,
       password: this.persona.password,
     };
-    this.apiService.addUser(newUser).subscribe((user) => this.users.push(user));
-    console.log(this.persona); //se puede borrar
+    this.apiService
+      .addUser(newUser)
+      .subscribe((user) => this.router.navigate(['userstbl']));
   }
 }
