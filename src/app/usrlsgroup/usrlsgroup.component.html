@@ -1,7 +1,6 @@
-<nz-list [nzDataSource]="users">
-  <ng-template nzListItem let-user>
-    <nz-list-item
-      [nzContent]="user.firstname + ' ' + user.lastname"
-    ></nz-list-item>
-  </ng-template>
+<h3 [ngStyle]="{ 'margin-bottom.px': 16 }">Default Size</h3>
+<nz-list nzBordered nzHeader="Usuarios:">
+  <nz-list-item *ngFor="let user of users">
+    <span nz-typography>{{ user.firstname }} {{ user.lastname }}</span>
+  </nz-list-item>
 </nz-list>

@@ -27,7 +27,7 @@ export class UsrlsgroupComponent implements OnInit {
 
   getUsersByGroup() {
     if (this.groupId) {
-      this.apiService.getUsersByGroup(this.groupId).subscribe(users => {
+      this.apiService.getUsersByGroup(this.groupId).subscribe((users) => {
         this.users = users;
       });
     }
