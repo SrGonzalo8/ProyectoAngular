@@ -7,4 +7,5 @@ export interface User {
   phone?: string;
   birthdate?: string;
   password?: string;
+  groupIds?:number[];
 }

@@ -32,4 +32,13 @@ export class UsrlsgroupComponent implements OnInit {
       });
     }
   }
+  deleteUserFromGroup(userId: number) {
+    if (this.groupId) {
+      this.apiService
+        .deleteUserFromGroup(this.groupId, userId)
+        .subscribe(() => {
+          this.getUsersByGroup();
+        });
+    }
+  }
 }

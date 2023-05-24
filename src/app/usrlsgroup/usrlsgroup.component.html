@@ -2,5 +2,8 @@
 <nz-list nzBordered nzHeader="Usuarios:">
   <nz-list-item *ngFor="let user of users">
     <span nz-typography>{{ user.firstname }} {{ user.lastname }}</span>
+    <button nz-button nzType="primary" nzShape="circle">
+      <span nz-icon nzType="delete" nzTheme="outline"></span>
+    </button>
   </nz-list-item>
 </nz-list>

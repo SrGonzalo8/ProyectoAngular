@@ -18,22 +18,6 @@
       <td>{{ data.email }}</td>
       <td>{{ data.phone }}</td>
       <td>{{ data.birthdate }}</td>
-      <!-- <td>
-        <nz-select
-          [(ngModel)]="data.groupId"
-          name="groupId"
-          (ngModelChange)="assignGroupToUser(data)"
-          nzPlaceHolder=" Añadir grupo"
-        >
-          <nz-option
-            *ngFor="let group of groups"
-            [nzValue]="group.id"
-            [nzLabel]="group.name ?? 'Nombre desconocido'"
-          >
-            {{ group.name }}
-          </nz-option>
-        </nz-select>
-      </td> -->
       <td>
         <button
           nz-button

@@ -27,7 +27,7 @@ export class ApiService {
     const urlgroup = `${this.urlApiGroups}${id}`;
     return this.http.delete<void>(urlgroup);
   }
-  public addUserToGroup(groupId: number, userId: number): Observable<any> {
+  public addUserToGroup(groupId: number, userId: number): Observable<User> {
     const url = `${this.urlApiGroups}${groupId}/addUser/${userId}`;
     return this.http.post(url, null);
   }
@@ -56,5 +56,10 @@ export class ApiService {
 
   public updateUser(user: User): Observable<User> {
     return this.http.put<User>(this.urlApi + user.id, user);
+  }
+
+  public deleteUserFromGroup(groupId: number, userId: number): Observable<void> {
+    const url = `${this.urlApiGroups}${groupId}/removeUser/${userId}`;
+    return this.http.delete<void>(url);
   }
 }
