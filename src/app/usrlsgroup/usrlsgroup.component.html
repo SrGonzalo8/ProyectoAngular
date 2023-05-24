@@ -1,6 +1,24 @@
-<h3 [ngStyle]="{ 'margin-bottom.px': 16 }">Default Size</h3>
-<nz-list nzBordered nzHeader="Usuarios:">
-  <nz-list-item *ngFor="let user of users">
-    <span nz-typography>{{ user.firstname }} {{ user.lastname }}</span>
-  </nz-list-item>
-</nz-list>
+<nz-table #basicTable [nzData]="users">
+  <thead>
+    <tr>
+      <th>Usuarios</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.firstname }} {{ user.lastname }}</td>
+
+      <td>
+        <button
+          nz-button
+          nzType="primary"
+          nzShape="circle"
+          (click)="removeUserFromGroup(user.id)"
+        >
+          <span nz-icon nzType="delete" nzTheme="outline"></span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

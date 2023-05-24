@@ -57,4 +57,12 @@ export class ApiService {
   public updateUser(user: User): Observable<User> {
     return this.http.put<User>(this.urlApi + user.id, user);
   }
+
+  public removeUserFromGroup(
+    groupId: number,
+    userId: number
+  ): Observable<User> {
+    const url = `${this.urlApiGroups}${groupId}/removeUser/${userId}`;
+    return this.http.post(url, null);
+  }
 }
