@@ -1,8 +1,13 @@
-<h3 [ngStyle]="{ 'margin-bottom.px': 16 }">Default Size</h3>
+<h2 [ngStyle]="{ 'margin-bottom.px': 16 }">Lista de usuarios de este grupo</h2>
 <nz-list nzBordered nzHeader="Usuarios:">
   <nz-list-item *ngFor="let user of users">
     <span nz-typography>{{ user.firstname }} {{ user.lastname }}</span>
-    <button nz-button nzType="primary" nzShape="circle">
+    <button
+      (click)="(deleteUserFromGroup)"
+      nz-button
+      nzType="primary"
+      nzShape="circle"
+    >
       <span nz-icon nzType="delete" nzTheme="outline"></span>
     </button>
   </nz-list-item>

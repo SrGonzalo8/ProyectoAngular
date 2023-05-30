@@ -19,7 +19,7 @@ export class FormularioComponent {
     phone: '',
     birthdate: '',
   };
-  groupIds = [];
+  groupIds: number[];
   listOfGroups: Group[] = [];
 
   constructor(private apiService: ApiService, private router: Router) {
@@ -28,7 +28,7 @@ export class FormularioComponent {
 
   procesar() {
     const newUser: User = {
-      id:0,
+      id: 0,
       firstname: this.persona.firstname,
       lastname: this.persona.lastname,
       username: this.persona.username,

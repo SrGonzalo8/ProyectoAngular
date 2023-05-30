@@ -1,0 +1,51 @@
+<form nz-form (ngSubmit)="procesar()" #formContact="ngForm">
+  <!-- PRODUCTNOMBRE -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="productname"
+      >Nombre del producto</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce un nombre válido"
+    >
+      <input nz-input [(ngModel)]="product.productname" name="productname" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- DESCRIPTION -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="description"
+      >Descripción</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce un apellido válido"
+    >
+      <input nz-input [(ngModel)]="product.description" name="description" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- SUBIR IMAGEN -->
+  <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="image"
+    >Subir imagen del producto:</nz-form-label
+  >
+  <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
+    <button nz-button>
+      <i nz-icon nzType="upload"></i>
+      Click to Upload
+    </button>
+  </nz-upload>
+
+  <!-- BOTON -->
+  <button
+    nz-button=""
+    nztype="primary"
+    class="ant-btn ant-btn-primary ant-btn-lg"
+    ng-click="procesar()"
+    [disabled]="formContact.invalid"
+  >
+    <span class="ng-star-inserted">Enviar</span>
+  </button>
+</form>

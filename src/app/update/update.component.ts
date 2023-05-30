@@ -18,7 +18,7 @@ export class UpdateComponent implements OnInit {
   user!: User;
   errorMsg!: string;
   groups: Group[] = [];
-  groupIds = [];
+  groupIds: number[];
   listOfGroups = [1, 2, 3, 4, 5, 6, 7, 8];
 
   ngOnInit(): void {

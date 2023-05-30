@@ -30,6 +30,9 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { UsrlsgroupComponent } from './usrlsgroup/usrlsgroup.component';
 import { PruebaComponent } from './prueba/prueba.component';
 import { NzListModule } from 'ng-zorro-antd/list';
+import { FormshopComponent } from './formshop/formshop/formshop.component';
+import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { NzMessageServiceModule } from 'ng-zorro-antd/message';
 
 registerLocaleData(en);
 
@@ -66,6 +69,10 @@ const routes: Routes = [
     path: 'prueba',
     component: PruebaComponent,
   },
+  {
+    path: 'formshop',
+    component: FormshopComponent,
+  },
 ];
 
 @NgModule({
@@ -75,6 +82,7 @@ const routes: Routes = [
     GroupstblComponent,
     UsrlsgroupComponent,
     PruebaComponent,
+    FormshopComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,6 +102,8 @@ const routes: Routes = [
     NzFormModule,
     NzSelectModule,
     NzListModule,
+    NzUploadModule,
+    NzMessageServiceModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
