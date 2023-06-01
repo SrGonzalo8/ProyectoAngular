@@ -5,6 +5,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzUploadChangeParam, NzUploadFile } from 'ng-zorro-antd/upload';
 import { HttpClient, HttpRequest, HttpResponse } from '@angular/common/http';
 import { filter } from 'rxjs/operators';
+import { ApiService } from '../../../servicios/api.service';
 
 @Component({
   selector: 'app-formshop',
@@ -18,13 +19,22 @@ export class FormshopComponent {
     creationdate: '',
   };
 
-  constructor(private http: HttpClient) {}
+  productIds: number[];
+  listOfProducts: Product[] = [];
+
+  constructor(
+    private http: HttpClient,
+    private apiService: ApiService,
+    private router: Router
+  ) {
+    this.getProducts();
+  }
 
   fileList: NzUploadFile[];
 
   beforeUpload = (file: NzUploadFile): boolean => {
     this.fileList = this.fileList.concat(file);
-    return false;
+    return true;
   };
 
   procesar() {
@@ -34,6 +44,14 @@ export class FormshopComponent {
       description: this.product.description,
       creationdate: this.product.creationdate,
     };
+
+    this.apiService.addProduct(newProduct).subscribe((Product) => {
+      if (Product && Product.id) {
+        const productId = Product.id;
+        this.router.navigate(['producttbl']);
+      }
+    });
+
     const formData = new FormData();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this.fileList.forEach((file: any) => {
@@ -59,5 +77,15 @@ export class FormshopComponent {
   capturarFile(event: any) {
     console.log(event);
     console.log(this.fileList);
+  }
+
+  onChange(result: Date): void {
+    console.log('onChange: ', result);
+  }
+
+  getProducts() {
+    this.apiService.getProduct().subscribe((products: Product[]) => {
+      this.listOfProducts = products;
+    });
   }
 }

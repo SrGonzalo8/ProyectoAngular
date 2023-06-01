@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { User } from '../app/formulario/models/user.interface';
 import { Group } from '../app/formulario/models/group.interface';
+import { Product } from '../app/formulario/models/product.interface';
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
   private urlApi = 'http://localhost:3000/users/';
   private urlApiGroups = 'http://localhost:3000/groups/';
+  private urlApiProducts = 'http://localhost:3000/products/';
   apiUrl: any;
 
   constructor(private http: HttpClient) {}
@@ -35,6 +37,7 @@ export class ApiService {
     const url = `${this.urlApiGroups}${groupId}/users`;
     return this.http.get<User[]>(url);
   }
+
   //SERVICIOS USERS
   public getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.urlApi);
@@ -58,8 +61,26 @@ export class ApiService {
     return this.http.put<User>(this.urlApi + user.id, user);
   }
 
-  public deleteUserFromGroup(groupId: number, userId: number): Observable<void> {
+  public deleteUserFromGroup(
+    groupId: number,
+    userId: number
+  ): Observable<void> {
     const url = `${this.urlApiGroups}${groupId}/removeUser/${userId}`;
     return this.http.delete<void>(url);
+  }
+
+  //SERVICIOS PRODUCTOS
+  public addProduct(product: Product): Observable<Product> {
+    const urlproduct = this.urlApiProducts;
+    return this.http.post<Product>(urlproduct, product);
+  }
+
+  public getProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.urlApiProducts);
+  }
+
+  public deleteProduct(id: number): Observable<void> {
+    const urlproduct = `${this.urlApiProducts}${id}`;
+    return this.http.delete<void>(urlproduct);
   }
 }

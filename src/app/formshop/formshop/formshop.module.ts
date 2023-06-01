@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzMessageServiceModule } from 'ng-zorro-antd/message';
 import { NzMessageService } from 'ng-zorro-antd/message';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,6 +22,9 @@ import { NzMessageService } from 'ng-zorro-antd/message';
     NzUploadModule,
     NzMessageServiceModule,
     NzUploadModule,
+    ReactiveFormsModule,
+    NgModule,
+    Router,
   ],
   declarations: [],
   exports: [],

@@ -27,10 +27,29 @@
     </nz-form-control>
   </nz-form-item>
 
+  <!-- CREATIONDATE -->
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="creationdate"
+      >Fecha de nacimiento</nz-form-label
+    >
+    <nz-form-control
+      [nzSm]="14"
+      [nzXs]="24"
+      nzErrorTip="Introduce una fecha de nacimiento valida"
+    >
+      <nz-date-picker
+        [(ngModel)]="product.creationdate"
+        (ngModelChange)="onChange($event)"
+        name="creationdate"
+      ></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+
   <!-- SUBIR IMAGEN -->
   <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="image"
     >Subir imagen del producto:</nz-form-label
   >
+  <br />
   <nz-upload [(nzFileList)]="fileList" [nzBeforeUpload]="beforeUpload">
     <button nz-button>
       <i nz-icon nzType="upload"></i>
