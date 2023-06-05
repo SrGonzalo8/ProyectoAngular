@@ -34,6 +34,7 @@ import { FormshopComponent } from './formshop/formshop/formshop.component';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzMessageServiceModule } from 'ng-zorro-antd/message';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormshopModule } from './formshop/formshop/formshop.module';
 
 registerLocaleData(en);
 
@@ -83,7 +84,6 @@ const routes: Routes = [
     GroupstblComponent,
     UsrlsgroupComponent,
     PruebaComponent,
-    FormshopComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,9 +103,9 @@ const routes: Routes = [
     NzFormModule,
     NzSelectModule,
     NzListModule,
-    NzUploadModule,
     NzMessageServiceModule,
     ReactiveFormsModule,
+    FormshopModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],

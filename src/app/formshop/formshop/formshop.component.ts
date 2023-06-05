@@ -26,9 +26,7 @@ export class FormshopComponent {
     private http: HttpClient,
     private apiService: ApiService,
     private router: Router
-  ) {
-    this.getProducts();
-  }
+  ) {}
 
   fileList: NzUploadFile[];
 
@@ -53,6 +51,8 @@ export class FormshopComponent {
     });
 
     const formData = new FormData();
+
+    this.fileList = this.fileList || [];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     this.fileList.forEach((file: any) => {
       formData.append('files[]', file);
@@ -61,9 +61,14 @@ export class FormshopComponent {
     formData.append('description', this.product.description);
     formData.append('creationdate', this.product.creationdate);
     // You can use any AJAX library you like
-    const req = new HttpRequest('POST', 'https://localhost:3000/', formData, {
-      // reportProgress: true
-    });
+    const req = new HttpRequest(
+      'POST',
+      'https://localhost:3000/product',
+      formData,
+      {
+        // reportProgress: true
+      }
+    );
     this.http
       .request(req)
       .pipe(filter((e) => e instanceof HttpResponse))
@@ -77,15 +82,5 @@ export class FormshopComponent {
   capturarFile(event: any) {
     console.log(event);
     console.log(this.fileList);
-  }
-
-  onChange(result: Date): void {
-    console.log('onChange: ', result);
-  }
-
-  getProducts() {
-    this.apiService.getProduct().subscribe((products: Product[]) => {
-      this.listOfProducts = products;
-    });
   }
 }

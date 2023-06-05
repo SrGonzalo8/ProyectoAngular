@@ -10,7 +10,7 @@ import { Product } from '../app/formulario/models/product.interface';
 export class ApiService {
   private urlApi = 'http://localhost:3000/users/';
   private urlApiGroups = 'http://localhost:3000/groups/';
-  private urlApiProducts = 'http://localhost:3000/products/';
+  private urlApiProducts = 'http://localhost:3000/product/';
   apiUrl: any;
 
   constructor(private http: HttpClient) {}

@@ -29,7 +29,7 @@
 
   <!-- CREATIONDATE -->
   <nz-form-item>
-    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="creationdate"
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired
       >Fecha de nacimiento</nz-form-label
     >
     <nz-form-control
@@ -39,8 +39,8 @@
     >
       <nz-date-picker
         [(ngModel)]="product.creationdate"
-        (ngModelChange)="onChange($event)"
         name="creationdate"
+        ngDefaultControl
       ></nz-date-picker>
     </nz-form-control>
   </nz-form-item>
