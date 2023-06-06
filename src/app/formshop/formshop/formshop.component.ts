@@ -17,6 +17,7 @@ export class FormshopComponent {
     productname: '',
     description: '',
     creationdate: '',
+    state: 'active',
   };
 
   productIds: number[];
@@ -28,42 +29,37 @@ export class FormshopComponent {
     private router: Router
   ) {}
 
-  fileList: NzUploadFile[];
+  file: any;
 
   beforeUpload = (file: NzUploadFile): boolean => {
-    this.fileList = this.fileList.concat(file);
+    this.file = file;
+    debugger;
     return true;
   };
 
   procesar() {
+    debugger;
     const newProduct: Product = {
-      id: 0,
       productname: this.product.productname,
       description: this.product.description,
       creationdate: this.product.creationdate,
+      state: this.product.state,
     };
-
-    this.apiService.addProduct(newProduct).subscribe((Product) => {
-      if (Product && Product.id) {
-        const productId = Product.id;
-        this.router.navigate(['producttbl']);
-      }
-    });
 
     const formData = new FormData();
 
-    this.fileList = this.fileList || [];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    this.fileList.forEach((file: any) => {
-      formData.append('files[]', file);
-    });
     formData.append('productname', this.product.productname);
     formData.append('description', this.product.description);
     formData.append('creationdate', this.product.creationdate);
+    formData.append('state', this.product.state);
+    if (this.file) {
+      formData.append('image', this.file);
+    }
+
     // You can use any AJAX library you like
     const req = new HttpRequest(
       'POST',
-      'https://localhost:3000/product',
+      'http://localhost:3000/product',
       formData,
       {
         // reportProgress: true
@@ -74,13 +70,12 @@ export class FormshopComponent {
       .pipe(filter((e) => e instanceof HttpResponse))
       .subscribe({
         next: () => {
-          this.fileList = [];
+          console.log('creado!');
         },
       });
   }
 
   capturarFile(event: any) {
     console.log(event);
-    console.log(this.fileList);
   }
 }
