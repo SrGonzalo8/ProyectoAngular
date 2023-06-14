@@ -46,16 +46,20 @@
   </nz-form-item>
 
   <!-- SUBIR IMAGEN -->
-  <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="image"
-    >Subir imagen del producto:</nz-form-label
-  >
-  <br />
-  <nz-upload [nzBeforeUpload]="beforeUpload">
-    <button nz-button>
-      <i nz-icon nzType="upload"></i>
-      Click to Upload
-    </button>
-  </nz-upload>
+  <nz-form-item>
+    <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired
+      >Subir imagen del producto</nz-form-label
+    >
+    <nz-form-control [nzSm]="14" [nzXs]="24">
+      <nz-upload [nzBeforeUpload]="beforeUpload">
+        <button nz-button>
+          <i nz-icon nzType="upload"></i>
+          Click to Upload
+        </button>
+      </nz-upload>
+      <span *ngIf="file">Fichero seleccionado: {{ file.name }}</span>
+    </nz-form-control>
+  </nz-form-item>
 
   <!-- BOTON -->
   <button

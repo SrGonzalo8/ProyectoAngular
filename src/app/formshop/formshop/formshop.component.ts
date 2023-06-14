@@ -17,7 +17,7 @@ export class FormshopComponent {
     productname: '',
     description: '',
     creationdate: '',
-    state: 'active',
+    state: 'activo',
   };
 
   productIds: number[];
@@ -33,12 +33,10 @@ export class FormshopComponent {
 
   beforeUpload = (file: NzUploadFile): boolean => {
     this.file = file;
-    debugger;
-    return true;
+    return false;
   };
 
   procesar() {
-    debugger;
     const newProduct: Product = {
       productname: this.product.productname,
       description: this.product.description,
